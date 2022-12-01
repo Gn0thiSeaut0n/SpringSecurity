@@ -1,0 +1,1 @@
+호출하는 OAuth ID 및 Secret Key 필요
