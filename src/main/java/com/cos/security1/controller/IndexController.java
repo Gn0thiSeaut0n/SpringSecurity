@@ -56,6 +56,7 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/user")
     public String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+        log.info("principalDetails: {}", principalDetails.getUser());
         return "user";
     }
 
