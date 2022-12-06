@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 // 1. 코드받기(인증O) -> 2. 엑세스토큰(권한) -> 3. 사용자프로필 정보를 가져옴 -> 4. 그 정보를 토대로 회원가입을 자동으로 진행시킴
@@ -37,7 +35,7 @@ public class SecurityConfig {
                 .defaultSuccessUrl("/")
                 .and()
                 .oauth2Login()
-                .loginPage("/loginForm") // 구글 로그인 완료된 뒤의 후처리 필요. Tip. 코드X (엑세스토큰+사용자 프로필 정보O)
+                .loginPage("/loginForm") // 로그인 완료된 뒤의 후처리 필요. Tip. 코드X (엑세스토큰+사용자 프로필 정보O)
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
 
